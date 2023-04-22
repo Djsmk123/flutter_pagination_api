@@ -2,6 +2,7 @@
 const fs= require('fs');
 export default function handler(req, res) {
   if(req.method=="GET"){
+   try{
     var page=req.query.page;
     var obj=JSON.parse(fs.readFileSync('products.json'));
     let data=[];
@@ -40,5 +41,12 @@ export default function handler(req, res) {
            'reach_max':5*(parseInt(page))>=obj.length ? true : false
         });
       }
+   }catch(e){
+    return res.send({
+        'status':false,
+        'message':'Error ${e}',
+         'status_code':'500',
+     });
+   }
   }
 }
