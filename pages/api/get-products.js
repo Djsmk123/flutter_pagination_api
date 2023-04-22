@@ -21,7 +21,7 @@ export default function handler(req, res) {
             
         }
         return res.send({
-            'sneakers':data,
+            'products':data,
             'current_page':1,
              'reach_max':false
         });
@@ -38,7 +38,7 @@ export default function handler(req, res) {
             
         }
         return res.send({
-           'sneakers':data,
+           'products':data,
            'current_page':parseInt(page),
            'reach_max':5*(parseInt(page))>=obj.length ? true : false
         });
