@@ -1,10 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import products from '../../products.json';
 const fs= require('fs');
 export default function handler(req, res) {
   if(req.method=="GET"){
    try{
     var page=req.query.page;
-    var obj=JSON.parse(fs.readFileSync('./products.json'));
+    //var obj=JSON.parse(fs.readFileSync('./products.json'));
+    var obj=products;
     let data=[];
     
     if(page===undefined || page==="0"){
