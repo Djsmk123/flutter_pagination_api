@@ -4,7 +4,7 @@ export default function handler(req, res) {
   if(req.method=="GET"){
    try{
     var page=req.query.page;
-    var obj=JSON.parse(fs.readFileSync('products.json'));
+    var obj=JSON.parse(fs.readFileSync('./products.json'));
     let data=[];
     
     if(page===undefined || page==="0"){
@@ -44,7 +44,7 @@ export default function handler(req, res) {
    }catch(e){
     return res.send({
         'status':false,
-        'message':'Error ${e}',
+        'message':e,
          'status_code':'500',
      });
    }
